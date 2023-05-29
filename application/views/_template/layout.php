@@ -8,7 +8,7 @@
     <h3><?= $page_title ?></h3>
 </div>
 <div class="page-content">
-    <section class="row">
+    <section class="row position-relative">
         <?= $body ?>
     </section>
 </div>

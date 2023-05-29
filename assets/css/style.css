@@ -1,0 +1,6 @@
+.flash-message {
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
