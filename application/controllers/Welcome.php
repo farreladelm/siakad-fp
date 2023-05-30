@@ -22,6 +22,11 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 		$data['page_title'] = 'Dashboard';
-		$this->template_view->load('index', $data);
+		if ($this->session->userdata('username')) {
+			$this->template_view->load('index', $data);
+		} else {
+			redirect('auth');
+		}
+		// print_r($this->session->userdata('nama'));
 	}
 }
