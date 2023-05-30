@@ -62,7 +62,7 @@ class Auth extends CI_Controller
                 $this->session->set_flashdata('login_ok', "<div class='alert alert-success'>
                 Selamat datang kembali, {$user['nama']}! </div>");
 
-                redirect('welcome');
+                redirect('user');
             }
             // password salah
             else {
