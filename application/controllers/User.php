@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User extends CI_Controller
+class User extends Auth_Controller
 {
     public function __construct()
     {
@@ -9,9 +9,27 @@ class User extends CI_Controller
         $this->load->model('user_model');
         $this->load->library('form_validation');
     }
+
+    private function form_validation_rules($new = false, $is_unique = true)
+    {
+        $unique = $is_unique ? '|is_unique[users.username]' : '';
+        $this->form_validation->set_rules('username', 'Username', 'required|trim' . $unique);
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('level', 'Level', 'required|trim');
+        $this->form_validation->set_rules('keterangan', 'Keterangan', 'required|trim');
+        if ($new) {
+            $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+                'matches' => 'password dont match!',
+                'min_length' => 'Password too short!'
+            ]);
+            $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
+        }
+    }
+
     public function index()
     {
-        $data['page_title'] = 'User';
+        $data['page_title'] = 'Pengguna Sistem';
+        $data['sidebar'] = 'pengguna sistem';
         $data['users'] = $this->user_model->get();
         // print_r($data['users']);
         $this->template_view->load('user/index', $data);
@@ -20,56 +38,53 @@ class User extends CI_Controller
     public function create()
     {
         $data['page_title'] = 'Buat Pengguna Baru';
+        $data['sidebar'] = 'pengguna sistem';
         // melakukan validasi form
-        $this->form_validation->set_rules('username', 'Username', 'required|trim');
-        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-        $this->form_validation->set_rules('level', 'Level', 'required|trim');
-        $this->form_validation->set_rules('keterangan', 'Keterangan', 'required|trim');
-        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]|matches[password2]', [
-            'matches' => 'password dont match!',
-            'min_length' => 'Password too short!'
-        ]);
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
+        $this->form_validation_rules(true, true);
 
         // jika validasi gagal
         if ($this->form_validation->run() == false) {
             // $data['title'] = 'Page | Registration';
-            $this->template_view->load('user/create', $data);
+            return $this->template_view->load('user/create', $data);
         }
-        // jika validasi berhasil
-        else {
-            // membuat data array untuk query ke db (harus urut sesuai db)
-            $data = [
-                'username' => htmlspecialchars($this->input->post('username', true)),
-                'nama' => htmlspecialchars($this->input->post('nama', true)),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'level' => htmlspecialchars($this->input->post('level', true)),
-                'keterangan' => htmlspecialchars($this->input->post('keterangan', true)),
-            ];
+        // membuat data array untuk query ke db (harus urut sesuai db)
+        $data = [
+            'username' => htmlspecialchars($this->input->post('username', true)),
+            'nama' => htmlspecialchars($this->input->post('nama', true)),
+            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            'level' => htmlspecialchars($this->input->post('level', true)),
+            'keterangan' => htmlspecialchars($this->input->post('keterangan', true)),
+        ];
 
-            // menginputkan data registrasi
-            $this->db->insert('user', $data);
-
+        // menginputkan data registrasi
+        if ($this->user_model->insert($data)) {
             // memberikan flashdata message kalau registrasi berhasil
             $this->session->set_flashdata('message', '<div class="alert alert-success">
             Berhasil menambahkan pengguna baru</div>');
-
-            // redirect ke controller auth, atau login
-            redirect('user');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">
+            Gagal menambahkan pengguna baru</div>');
         }
+
+        // redirect ke controller user
+        return redirect('user');
     }
 
     public function edit($id)
     {
-        $user = $this->user_model->get($id);
-        // print_r($user);
-        $data['user'] = $user;
         $data['page_title'] = 'Edit Pengguna';
-        $this->template_view->load('user/edit', $data);
-    }
+        $data['sidebar'] = 'pengguna sistem';
+        $user = $this->user_model->get($id);
+        $data['user'] = $user;
+        // validasi form
+        // apply unique rules ketika input username tidak sesuai dengan nilai pada db
+        $this->form_validation_rules(false, ($user['username'] != $this->input->post('username')));
 
-    public function update($id)
-    {
+        // jika validasi gagal
+        if ($this->form_validation->run() == false) {
+            // print_r($this->form_validation->run());
+            return $this->template_view->load('user/edit', $data);
+        }
         $data = [
             'username' => htmlspecialchars($this->input->post('username', true)),
             'nama' => htmlspecialchars($this->input->post('nama', true)),
@@ -78,20 +93,22 @@ class User extends CI_Controller
         ];
 
         // menginputkan data registrasi
-        $this->db->update('user', $data, ['user_id' => $id]);
-
-        // memberikan flashdata message kalau registrasi berhasil
-        $this->session->set_flashdata('message', '<div class="alert alert-success">
-        Berhasil menambahkan pengguna baru</div>');
-
-        // redirect ke controller auth, atau login
-        redirect('user');
+        if ($this->user_model->update($id, $data)) {
+            // memberikan flashdata message kalau berhasil update
+            $this->session->set_flashdata('message', '<div class="alert alert-success">
+            Berhasil menambahkan pengguna baru</div>');
+        } else {
+            // memberikan flashdata message kalau gagal update
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">
+            Berhasil menambahkan pengguna baru</div>');
+        }
+        // redirect ke controller user
+        return redirect('user');
     }
 
     public function delete($id)
     {
-        $this->db->delete('user', ['user_id' => $id]);
-        if ($this->db->affected_rows('user')) {
+        if ($this->user_model->delete($id)) {
             $this->session->set_flashdata('message', '<div class="alert alert-success">
             Berhasil menghapus Pengguna</div>');
         } else {

@@ -14,6 +14,9 @@ class Template_view
         $body = $this->ci->load->view($body_view, $data, true);
 
         $data['body'] = $body;
+        if (!isset($data['sidebar'])) {
+            $data['sidebar'] = '';
+        }
         $template_view = '_template/layout';
 
         $this->ci->load->view($template_view, $data);

@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-horizontal" action="<?= base_url('user/update/' . $user['user_id']) ?>" method="POST">
+                            <form class="form form-horizontal" action="<?= base_url('user/edit/' . $user['user_id']) ?>" method="POST">
                                 <div class="form-body">
                                     <divx class="row">
                                         <div class="col-md-4">
@@ -41,8 +41,7 @@
                                             </select>
                                         </fieldset>
                                         <div class="col-sm-12 d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
                                 </div>
                         </div>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends CI_Controller
+class Welcome extends Auth_Controller
 {
 
 	/**
@@ -22,11 +22,7 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 		$data['page_title'] = 'Dashboard';
-		if ($this->session->userdata('username')) {
-			$this->template_view->load('index', $data);
-		} else {
-			redirect('auth');
-		}
-		// print_r($this->session->userdata('nama'));
+		$data['sidebar'] = 'Dashboard';
+		$this->template_view->load('index', $data);
 	}
 }

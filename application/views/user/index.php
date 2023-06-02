@@ -26,7 +26,6 @@
                     <td class="text-bold-500"><?= $user['keterangan'] ? $user['keterangan'] : '-' ?></td>
                     <td>
                         <a href="<?= base_url('user/edit/' . $user['user_id']) ?>" class="btn btn-outline-warning">Edit</a>
-                        <!-- <a href="<?= base_url('user/delete/' . $user['user_id']) ?>" class="btn btn-outline-danger">Delete</a> -->
                         <button type="button" class="btn btn-outline-danger block" data-bs-toggle="modal" data-bs-target="#deleteModalCard<?= $user['user_id'] ?>">
                             Delete
                         </button>
