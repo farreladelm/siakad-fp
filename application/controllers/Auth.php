@@ -10,14 +10,14 @@ class Auth extends CI_Controller
         $this->load->model('user_model');
     }
 
-    private function check_user()
+    public function logged_in()
     {
         return $this->session->userdata('username') ? true : false;
     }
 
     public function index()
     {
-        if ($this->check_user()) {
+        if ($this->logged_in()) {
             redirect('auth/logout');
         }
         // memberikan rules
@@ -42,7 +42,7 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         // membuat query
-        $user = $this->db->get_where('user', ['username' => $username])->row_array();
+        $user = $this->db->get_where('users', ['username' => $username])->row_array();
 
         // check apakah user ada --> !null
         if ($user) {
@@ -62,7 +62,7 @@ class Auth extends CI_Controller
                 $this->session->set_flashdata('login_ok', "<div class='alert alert-success'>
                 Selamat datang kembali, {$user['nama']}! </div>");
 
-                redirect('user');
+                redirect('welcome');
             }
             // password salah
             else {
@@ -83,7 +83,7 @@ class Auth extends CI_Controller
 
     public function register()
     {
-        if ($this->check_user()) {
+        if ($this->logged_in()) {
             redirect('auth/logout');
         }
         // melakukan validasi form
