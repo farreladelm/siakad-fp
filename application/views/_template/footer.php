@@ -17,8 +17,12 @@
 <script src="<?= base_url('') ?>/assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="<?= base_url('') ?>/assets/js/pages/dashboard.js"></script>
 
-<script src="assets/extensions/sweetalert2/sweetalert2.min.js"></script>>
-<script src="assets/js/pages/sweetalert2.js"></script>>
+<script src="<?= base_url('') ?>/assets/extensions/sweetalert2/sweetalert2.min.js"></script>>
+<script src="<?= base_url('') ?>/assets/js/pages/sweetalert2.js"></script>>
+
+<!-- DATATABLES -->
+<script src="<?= base_url('') ?>/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+<script src="<?= base_url('') ?>/assets/js/pages/simple-datatables.js"></script>
 
 </body>
 

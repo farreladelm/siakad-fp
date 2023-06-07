@@ -75,19 +75,22 @@
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="component-alert.html">Tahun Akademik</a>
+                            <a href="<?= base_url('akademik/tahunakademik') ?>">Tahun Akademik</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-alert.html">Mata Kuliah</a>
+                            <a href="<?= base_url('akademik/matakuliah') ?>">Mata Kuliah</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-alert.html">Jadwal Kuliah</a>
+                            <a href="<?= base_url('akademik/jadwalkuliah') ?>">Jadwal Kuliah</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="component-alert.html">registrasi</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-alert.html">Kartu Rencana Studi</a>
+                            <a href="<?= base_url('akademik/konsentrasi') ?>">Konsentrasi</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="<?= base_url('akademik/krs') ?>">Kartu Rencana Studi</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="component-alert.html">Kartu Hasil Studi</a>
