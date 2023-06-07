@@ -110,7 +110,7 @@ class Auth extends CI_Controller
                 'level' => 2,
             ];
             // menginputkan data registrasi
-            $this->db->insert('user', $data);
+            $this->db->insert('users', $data);
 
             // memberikan flashdata message kalau registrasi berhasil
             $this->session->set_flashdata('message', '<div class="alert alert-success">
