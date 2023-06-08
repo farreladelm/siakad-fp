@@ -1,6 +1,6 @@
 ###################
-SIAKAD
+SIAKAD FINAL PROJECT
 ###################
 
-Deadline seminggu lagi
+Deadline: 14 Juni 2023 (6 Hari)
 
