@@ -35,11 +35,12 @@
                                     <div class="btn btn-danger">Inactive</div>
                                 <?php endif; ?>
                             </td>
-                            <!-- <td><?= $subject['level'] == 1 ? 'Admin' : ($subject['level'] == 2 ? 'Pihak Jurusan' : 'Dosen') ?></td> -->
                             <td>
-                                <a href="<?= base_url('akademik/matakuliah/edit/' . $subject['makul_id']) ?>" class="btn btn-outline-warning">Edit</a>
+                                <a href="<?= base_url('akademik/matakuliah/edit/' . $subject['makul_id']) ?>" class="btn btn-outline-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
                                 <button type="button" class="btn btn-outline-danger block" data-bs-toggle="modal" data-bs-target="#deleteModalCard<?= $subject['makul_id'] ?>">
-                                    Delete
+                                    <i class="fas fa-times"></i>
                                 </button>
                                 <!--Basic Modal -->
                                 <div class="modal fade text-left" id="deleteModalCard<?= $subject['makul_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
