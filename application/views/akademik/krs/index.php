@@ -3,14 +3,13 @@
     <div class="card">
         <div class="card-body">
             <div class="row m-3">
-                <a href="<?= base_url('akademik/krs/create') ?>" class="btn btn-primary col-2">Tambah Mata Kuliah</a>
+                <a href="<?= base_url('akademik/krs/create') ?>" class="btn btn-primary col-2">Tambah KRS</a>
             </div>
             <table class="table table-lg" id="table1">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>nim</th>
-                        <!-- <th>Kelompok</th> -->
                         <th>Jadwal</th>
                         <th>Semester</th>
                         <th>Status</th>
@@ -32,9 +31,11 @@
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <a href="<?= base_url('akademik/krs/edit/' . $item['krs_id']) ?>" class="btn btn-outline-warning">Edit</a>
+                                <a href="<?= base_url('akademik/krs/edit/' . $item['krs_id']) ?>" class="btn btn-outline-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
                                 <button type="button" class="btn btn-outline-danger block" data-bs-toggle="modal" data-bs-target="#deleteModalCard<?= $item['krs_id'] ?>">
-                                    Delete
+                                    <i class="fas fa-times"></i>
                                 </button>
                                 <!--Basic Modal -->
                                 <div class="modal fade text-left" id="deleteModalCard<?= $item['krs_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">

@@ -30,9 +30,11 @@
                                 <td><?= $user['last_login'] ? $user['last_login'] : '-' ?></td>
                                 <td class="text-bold-500"><?= $user['keterangan'] ? $user['keterangan'] : '-' ?></td>
                                 <td>
-                                    <a href="<?= base_url('user/edit/' . $user['user_id']) ?>" class="btn btn-outline-warning">Edit</a>
+                                    <a href="<?= base_url('user/edit/' . $user['user_id']) ?>" class="btn btn-outline-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                     <button type="button" class="btn btn-outline-danger block" data-bs-toggle="modal" data-bs-target="#deleteModalCard<?= $user['user_id'] ?>">
-                                        Delete
+                                        <i class="fas fa-times"></i>
                                     </button>
                                     <!--Basic Modal -->
                                     <div class="modal fade text-left" id="deleteModalCard<?= $user['user_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">

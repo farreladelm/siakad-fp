@@ -84,7 +84,7 @@
                             <a href="<?= base_url('akademik/jadwalkuliah') ?>">Jadwal Kuliah</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-alert.html">registrasi</a>
+                            <a href="<?= base_url('akademik/registrasi') ?>">registrasi</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="<?= base_url('akademik/konsentrasi') ?>">Konsentrasi</a>
@@ -93,7 +93,7 @@
                             <a href="<?= base_url('akademik/krs') ?>">Kartu Rencana Studi</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-alert.html">Kartu Hasil Studi</a>
+                            <a href="<?= base_url('akademik/khs') ?>">Kartu Hasil Studi</a>
                         </li>
 
                     </ul>

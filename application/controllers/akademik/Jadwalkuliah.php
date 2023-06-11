@@ -9,7 +9,10 @@ class Jadwalkuliah extends Auth_Controller
         $this->load->model('jadwalkuliah_model', 'm_jadwal');
         $this->load->model('matakuliah_model', 'm_makul');
         $this->load->model('tahunakademik_model', 'm_takademik');
+        $this->load->model('konsentrasi_model', 'm_konsentrasi');
         $this->load->library('form_validation');
+
+        $this->load->helper('basic_helper');
     }
 
     private function form_validation_rules()
@@ -31,11 +34,10 @@ class Jadwalkuliah extends Auth_Controller
         $data['page_title'] = 'Jadwal Kuliah';
         $data['sidebar'] = 'akademik';
 
-        $data['jadwal'] = $this->m_jadwal->get();
+        $data['jadwal'] = days_str($this->m_jadwal->get(), 'hari_id');
         $data['makul'] = $this->m_makul->get_name();
         $data['tahun_akademik'] = $this->m_takademik->get_name();
-        // print_r($data);
-
+        $data['konsentrasi'] = $this->m_konsentrasi->get_name();
 
         $this->template_view->load('akademik/jadwalkuliah/index', $data);
     }

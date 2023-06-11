@@ -3,44 +3,42 @@
     <div class="card">
         <div class="card-body">
             <div class="row m-3">
-                <a href="<?= base_url('akademik/jadwalkuliah/create') ?>" class="btn btn-primary col-2">Tambah Mata Kuliah</a>
+                <a href="<?= base_url('akademik/jadwalkuliah/create') ?>" class="btn btn-primary col-2">Tambah Jadwal Baru</a>
             </div>
             <table class="table table-lg" id="table1">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Tahun Akademik</th>
-                        <!-- <th>Kelompok</th> -->
-                        <!-- <th>Konsentrasi</th> -->
+                        <th>Hari</th>
                         <th>Mata Kuliah</th>
-                        <!-- <th>Hari</th>
-                        <th>Waktu</th>
                         <th>Ruangan</th>
-                        <th>Dosen</th> -->
-                        <th>Semester</th>
-                        <th>Mulai</th>
-                        <th>Selesai</th>
+                        <th>Dosen</th>
+                        <th>Jam</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($jadwal as $key => $item) : ?>
                         <tr>
-                            <td><?= $key + 1 ?></td>
-                            <td class="text-bold-500"><?= $tahun_akademik[$item['tahun_akademik_id']] ?></td>
-                            <!-- <td><?= $item['konsentrasi'] ?></td> -->
+                            <td class="fw-bold"><?= $key + 1 ?></td>
+                            <td><?= $item['hari_id'] ?></td>
                             <td><?= $makul[$item['makul_id']] ?></td>
-                            <!-- <td><?= $item['hari'] ?></td>
-                            <td><?= $item['waktu'] ?></td>
-                            <td><?= $item['ruangan'] ?></td>
-                            <td><?= $item['dosen'] ?></td> -->
-                            <td><?= $item['semester'] ?></td>
-                            <td><?= $item['jam_mulai'] ?></td>
-                            <td><?= $item['jam_selesai'] ?></td>
+                            <td><?= $item['ruangan_id'] ?></td>
+                            <td><?= $item['dosen_id'] ?></td>
                             <td>
-                                <a href="<?= base_url('akademik/jadwalkuliah/edit/' . $item['jadwal_id']) ?>" class="btn btn-outline-warning">Edit</a>
+                                <div class="p-2 border border-1 rounded mb-2">
+                                    <?= $item['jam_mulai'] ?>
+                                </div>
+                                <div class="p-2 border border-1 rounded">
+                                    <?= $item['jam_selesai'] ?>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="<?= base_url('akademik/jadwalkuliah/edit/' . $item['jadwal_id']) ?>" class="btn btn-outline-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
                                 <button type="button" class="btn btn-outline-danger block" data-bs-toggle="modal" data-bs-target="#deleteModalCard<?= $item['jadwal_id'] ?>">
-                                    Delete
+                                    <i class="fas fa-times"></i>
                                 </button>
                                 <!--Basic Modal -->
                                 <div class="modal fade text-left" id="deleteModalCard<?= $item['jadwal_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
