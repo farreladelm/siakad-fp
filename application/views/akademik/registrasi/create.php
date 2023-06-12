@@ -5,21 +5,25 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-horizontal" action="<?= base_url('akademik/krs/create') ?>" method="POST">
+                            <form class="form form-horizontal" action="<?= base_url('akademik/registrasi/create') ?>" method="POST">
                                 <div class="form-body">
                                     <divx class="row">
                                         <div class="col-md-4">
                                             <label>NIM</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="nim" class="form-control" name="nim" placeholder="tanpa spasi">
+                                            <input type="text" id="nim" class="form-control" name="nim" placeholder="Hanya gunakan angka">
                                         </div>
                                         <div class="col-md-4">
-                                            <label>Jadwal</label>
+                                            <label>Tahun Akademik</label>
                                         </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="text" id="jadwal_id" class="form-control" name="jadwal_id" placeholder="">
-                                        </div>
+                                        <fieldset class="col-md-8 form-group form-group">
+                                            <select class="form-select" id="basicSelect" name="tahun_akademik_id">
+                                                <?php foreach ($tahun_akademik as $item) : ?>
+                                                    <option value="<?= $item['tahun_akademik_id'] ?>"><?= $item['tahun'] ?> <?= $item['keterangan'] % 2 == 0 ? 'Genap' : 'Ganjil'  ?></option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </fieldset>
                                         <div class="col-md-4">
                                             <label>Semester</label>
                                         </div>
@@ -31,6 +35,8 @@
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
                                                 <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
                                             </select>
                                         </fieldset>
                                         <div class="col-sm-12 d-flex justify-content-end">

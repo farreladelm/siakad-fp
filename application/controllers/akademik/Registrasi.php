@@ -30,7 +30,7 @@ class Registrasi extends Auth_Controller
 
     public function create()
     {
-        $data['page_title'] = 'Tambah KHS';
+        $data['page_title'] = 'Tambah Data Registrasi';
         $data['sidebar'] = 'akademik';
         // melakukan validasi form
         $this->form_validation_rules();
@@ -38,16 +38,15 @@ class Registrasi extends Auth_Controller
         // jika validasi gagal
         if ($this->form_validation->run() == false) {
             // $data['title'] = 'Page | Registration';
+            $data['tahun_akademik'] = $this->tahunakademik_model->get();
             return $this->template_view->load('akademik/registrasi/create', $data);
         }
         // membuat data array untuk query ke db (harus urut sesuai db)
         $data = [
-            'krs_id' => htmlspecialchars($this->input->post('krs_id', true)),
-            'mutu' => htmlspecialchars($this->input->post('mutu', true)),
-            'kehadiran' => htmlspecialchars($this->input->post('kehadiran', true)),
-            'tugas' => htmlspecialchars($this->input->post('tugas', true)),
-            'grade' => htmlspecialchars($this->input->post('grade', true)),
-            'confirm' => htmlspecialchars($this->input->post('confirm', true)),
+            'nim' => htmlspecialchars($this->input->post('nim', true)),
+            // 'tanggal_registrasi' => date('d-m-Y H:i:s'),
+            'tahun_akademik_id' => htmlspecialchars($this->input->post('tahun_akademik_id', true)),
+            'semester' => htmlspecialchars($this->input->post('semester', true)),
         ];
 
         // menginputkan data registrasi

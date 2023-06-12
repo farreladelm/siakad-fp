@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body">
             <div class="row m-3">
-                <a href="<?= base_url('akademik/khs/create') ?>" class="btn btn-primary col-2">Tambah KHS</a>
+                <a href="<?= base_url('akademik/khs/create') ?>" class="btn btn-primary col-2"><i class="fas fa-plus me-2"></i> Tambah Data</a>
             </div>
             <table class="table table-lg" id="table1">
                 <thead>
