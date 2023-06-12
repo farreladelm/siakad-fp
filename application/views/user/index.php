@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
             <div class="row m-3">
-                <a href="<?= base_url('user/create') ?>" class="btn btn-primary col-2">Tambah Pengguna</a>
+                <a href="<?= base_url('user/create') ?>" class="btn btn-primary col-2"><i class="fas fa-plus me-2"></i> Tambah Data</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-lg" id="table1">

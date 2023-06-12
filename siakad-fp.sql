@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2023 at 06:06 PM
+-- Generation Time: Jun 12, 2023 at 12:06 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.2.31
 
@@ -127,7 +127,7 @@ CREATE TABLE `akademik_khs` (
 --
 
 INSERT INTO `akademik_khs` (`khs_id`, `krs_id`, `mutu`, `kehadiran`, `tugas`, `grade`, `confirm`) VALUES
-(1, 1, 0, 0, 0, '', 2),
+(1, 1, 80, 80, 80, 'A', 1),
 (2, 2, 0, 0, 0, '', 2),
 (3, 3, 0, 0, 0, '', 2),
 (4, 4, 0, 0, 0, '', 2),
@@ -327,7 +327,8 @@ INSERT INTO `akademik_konsentrasi` (`konsentrasi_id`, `nama_konsentrasi`, `ketua
 (3, 'gizi', 'bukan saya lagi', 'D4', 8, '', 'D4', 2),
 (4, 'Informatika', 'Saya', 'S1', 8, '111', 'S1', 1),
 (6, 'Sains Data', 'Bukan Saya', 'S1', 8, '', 'S1', 1),
-(7, 'Sistem Informasi', 'mungkin saya', 'S1', 8, '', 'S1', 1);
+(7, 'Sistem Informasi', 'mungkin saya', 'S1', 8, '', 'S1', 1),
+(8, 'Ilmu Komunikasi', 'Mahdiana Zanuba', 'S1', 8, '', 'S1', 2);
 
 -- --------------------------------------------------------
 
@@ -348,7 +349,7 @@ CREATE TABLE `akademik_krs` (
 --
 
 INSERT INTO `akademik_krs` (`krs_id`, `nim`, `jadwal_id`, `semester`, `status_pa`) VALUES
-(1, '209348223', 1, 5, 'y'),
+(1, '209348223', 1, 5, 'n'),
 (2, '12039812', 73, 1, 'n');
 
 -- --------------------------------------------------------
@@ -381,7 +382,7 @@ INSERT INTO `akademik_prodi` (`prodi_id`, `nama_prodi`, `ketua`, `no_izin`, `sta
 CREATE TABLE `akademik_registrasi` (
   `registrasi_id` int(11) NOT NULL,
   `nim` varchar(10) NOT NULL,
-  `tanggal_registrasi` datetime NOT NULL,
+  `tanggal_registrasi` datetime NOT NULL DEFAULT current_timestamp(),
   `tahun_akademik_id` int(11) NOT NULL,
   `semester` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -397,10 +398,12 @@ INSERT INTO `akademik_registrasi` (`registrasi_id`, `nim`, `tanggal_registrasi`,
 (21, 'KA131005', '2014-09-05 17:01:43', 1, 3),
 (22, 'ti102134', '2014-09-08 16:33:19', 1, 4),
 (23, 'KA131006', '2014-09-08 16:33:35', 1, 4),
-(24, 'ti102134', '2014-09-08 17:09:26', 6, 5),
-(25, 'KA131002', '2014-09-08 17:12:59', 6, 4),
-(26, '1402126', '2018-04-03 21:12:54', 7, 1),
-(27, '1402126', '2018-04-04 17:24:58', 10, 2);
+(24, 'ti102134', '2014-09-08 17:09:26', 1, 5),
+(25, 'KA131002', '2014-09-08 17:12:59', 1, 4),
+(26, '1402126', '2018-04-03 21:12:54', 1, 1),
+(27, '1402126', '2018-04-04 17:24:58', 1, 2),
+(28, '12039812', '0000-00-00 00:00:00', 7, 6),
+(29, '3124567543', '2023-06-11 19:52:26', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -485,7 +488,7 @@ INSERT INTO `makul_matakuliah` (`makul_id`, `kode_makul`, `nama_makul`, `sks`, `
 (1, 'DTIKB01', 'STRUKTUR DATA', 1, 1, 3, 2, 'y', 1),
 (2, 'DTIKB0114', 'KONSEP PEMROGRAMAN', 1, 1, 3, 2, 'y', 1),
 (3, 'DTIKB012', 'PRAKTEK KONSEP PEMROGRAMAN', 4, 1, 3, 2, 'y', 4),
-(4, 'DTIKB02', 'SISTEM OPERASI 1', 2, 5, 3, 2, 'n', 2),
+(4, 'DTIKB02', 'SISTEM OPERASI 1', 2, 5, 3, 2, 'y', 2),
 (5, 'DTIKB03', 'SISTEM OPERASI 2', 4, 1, 3, 2, 'y', 4),
 (6, 'DTIKB04', 'PEMROGRAMAN DELPHI', 4, 1, 3, 2, 'y', 4),
 (7, 'DTIKB05', 'JARINGAN KOMPUTER 1', 4, 2, 3, 2, 'y', 4),
@@ -560,7 +563,8 @@ INSERT INTO `users` (`user_id`, `username`, `nama`, `password`, `level`, `ketera
 (10, 'bykox', 'Hayes', '$2y$10$g9XR3//3IQTFW/bmEp1QLuuqn9OpGAJbUoE53vY.mltVl5hvLGu6G', 2, 'Informatika', NULL, '2023-05-30 16:29:27'),
 (15, 'ricorih', 'Aurora', '$2y$10$J4.GQHhZpInPJU9hIkcldOMR0UZvTVCqKFLZ0ORo4JOElFLTHQThu', 3, 'Sistem Informasi', NULL, '2023-05-30 17:07:02'),
 (17, 'testdata', 'test', '$2y$10$CgxrIJ63mYAFS7HQv886sOs3CJMxd23Z9LTwiJd8Ev5ZClgEG1Epy', 2, NULL, NULL, '2023-06-07 16:04:09'),
-(18, 'testdata', 'test', '$2y$10$lyEHx5uJ0NkcqDEzO9T/4O57lWFrY.5VweVVWecNYA3LQRO9R3JRO', 2, NULL, NULL, '2023-06-07 16:04:35');
+(18, 'testdata', 'test', '$2y$10$lyEHx5uJ0NkcqDEzO9T/4O57lWFrY.5VweVVWecNYA3LQRO9R3JRO', 2, NULL, NULL, '2023-06-07 16:04:35'),
+(19, 'kibey', 'kibey', '$2y$10$ExHLuGFz20v/IQ9YEtBqNe9JgW47IH6iINAfp5OgedfFl6txQNteG', 2, NULL, NULL, '2023-06-07 16:09:13');
 
 --
 -- Indexes for dumped tables
@@ -646,13 +650,13 @@ ALTER TABLE `akademik_jadwal_kuliah`
 -- AUTO_INCREMENT for table `akademik_khs`
 --
 ALTER TABLE `akademik_khs`
-  MODIFY `khs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
+  MODIFY `khs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- AUTO_INCREMENT for table `akademik_konsentrasi`
 --
 ALTER TABLE `akademik_konsentrasi`
-  MODIFY `konsentrasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `konsentrasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `akademik_krs`
@@ -670,7 +674,7 @@ ALTER TABLE `akademik_prodi`
 -- AUTO_INCREMENT for table `akademik_registrasi`
 --
 ALTER TABLE `akademik_registrasi`
-  MODIFY `registrasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `registrasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `akademik_tahun_akademik`
@@ -700,7 +704,7 @@ ALTER TABLE `makul_matakuliah`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
