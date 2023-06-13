@@ -47,22 +47,22 @@
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="component-alert.html">Ruangan</a>
+                            <a href="<?= base_url('masterdata/ruangan') ?>">Ruangan</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-badge.html">Dosen</a>
+                            <a href="<?= base_url('masterdata/dosen') ?>">Dosen</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-breadcrumb.html">Grade Nilai</a>
+                            <a href="<?= base_url('masterdata/grade_nilai') ?>">Grade Nilai</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-button.html">Tahun Angkatan</a>
+                            <a href="<?= base_url('masterdata/angkatan') ?>">Tahun Angkatan</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="sidebar-item <?= strtolower($sidebar) == "mahasiswa" ? 'active' : '' ?>">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="<?= base_url('mahasiswa') ?>" class='sidebar-link'>
                         <i class="bi bi-person-badge-fill"></i>
                         <span>Mahasiswa</span>
                     </a>
