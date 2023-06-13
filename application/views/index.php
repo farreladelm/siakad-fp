@@ -10,8 +10,8 @@
                             </div>
                         </div>
                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                            <h6 class="text-muted font-semibold">Profile Views</h6>
-                            <h6 class="font-extrabold mb-0">112.000</h6>
+                            <h6 class="text-muted font-semibold">Dosen</h6>
+                            <h6 class="font-extrabold mb-0"><?= $jumlah_dosen ?></h6>
                         </div>
                     </div>
                 </div>
@@ -27,8 +27,8 @@
                             </div>
                         </div>
                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                            <h6 class="text-muted font-semibold">Followers</h6>
-                            <h6 class="font-extrabold mb-0">183.000</h6>
+                            <h6 class="text-muted font-semibold">Mahasiswa</h6>
+                            <h6 class="font-extrabold mb-0"><?= $jumlah_mahasiswa ?></h6>
                         </div>
                     </div>
                 </div>
@@ -44,8 +44,8 @@
                             </div>
                         </div>
                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                            <h6 class="text-muted font-semibold">Following</h6>
-                            <h6 class="font-extrabold mb-0">80.000</h6>
+                            <h6 class="text-muted font-semibold">Pengguna</h6>
+                            <h6 class="font-extrabold mb-0"><?= $jumlah_user ?></h6>
                         </div>
                     </div>
                 </div>
@@ -61,8 +61,8 @@
                             </div>
                         </div>
                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                            <h6 class="text-muted font-semibold">Saved Post</h6>
-                            <h6 class="font-extrabold mb-0">112</h6>
+                            <h6 class="text-muted font-semibold">Ruangan</h6>
+                            <h6 class="font-extrabold mb-0"><?= $jumlah_ruangan ?></h6>
                         </div>
                     </div>
                 </div>
@@ -73,15 +73,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Profile Visit</h4>
+                    <h4>Selamat Datang di Sistem Informasi Akademik</h4>
                 </div>
                 <div class="card-body">
                     <div id="chart-profile-visit"></div>
                 </div>
+
             </div>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-12 col-xl-4">
             <div class="card">
                 <div class="card-header">
@@ -187,7 +188,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 <div class="col-12 col-lg-3">
     <div class="card">
@@ -198,7 +199,7 @@
                 </div>
                 <div class="ms-3 name">
                     <h5 class="font-bold"><?= $this->session->userdata('nama') ?></h5>
-                    <h6 class="text-muted mb-0"><?= $this->session->userdata('username') ?></h6>
+                    <h6 class="text-muted mb-0">@<?= $this->session->userdata('username') ?></h6>
                 </div>
             </div>
             <div class="ms-3 name">
@@ -210,47 +211,20 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h4>Recent Messages</h4>
+            <h4>Latest User</h4>
         </div>
         <div class="card-content pb-4">
-            <div class="recent-message d-flex px-4 py-3">
-                <div class="avatar avatar-lg">
-                    <img src="assets/images/faces/4.jpg">
+            <?php foreach ($latest_user as $user) : ?>
+                <div class="recent-message d-flex px-4 py-3">
+                    <div class="avatar avatar-lg">
+                        <img src="assets/images/faces/<?= rand(1, 8) ?>.jpg">
+                    </div>
+                    <div class="name ms-4">
+                        <h5 class="mb-1"><?= $user['nama'] ?></h5>
+                        <h6 class="text-muted mb-0">@<?= $user['username'] ?></h6>
+                    </div>
                 </div>
-                <div class="name ms-4">
-                    <h5 class="mb-1">Hank Schrader</h5>
-                    <h6 class="text-muted mb-0">@johnducky</h6>
-                </div>
-            </div>
-            <div class="recent-message d-flex px-4 py-3">
-                <div class="avatar avatar-lg">
-                    <img src="assets/images/faces/5.jpg">
-                </div>
-                <div class="name ms-4">
-                    <h5 class="mb-1">Dean Winchester</h5>
-                    <h6 class="text-muted mb-0">@imdean</h6>
-                </div>
-            </div>
-            <div class="recent-message d-flex px-4 py-3">
-                <div class="avatar avatar-lg">
-                    <img src="assets/images/faces/1.jpg">
-                </div>
-                <div class="name ms-4">
-                    <h5 class="mb-1">John Dodol</h5>
-                    <h6 class="text-muted mb-0">@dodoljohn</h6>
-                </div>
-            </div>
-            <div class="px-4">
-                <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Start Conversation</button>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            <h4>Visitors Profile</h4>
-        </div>
-        <div class="card-body">
-            <div id="chart-visitors-profile"></div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

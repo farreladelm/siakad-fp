@@ -8,12 +8,6 @@
                             <form class="form form-horizontal" action="<?= base_url('masterdata/dosen/edit/' . $dos['dosen_id']) ?>" method="POST">
                                 <div class="form-body">
                                     <divx class="row">
-                                    <div class="col-md-4">
-                                            <label>ID dosen</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="text" id="dosen_id" class="form-control" name="dosen_id" value="<?= $dos['dosen_id'] ?>" placeholder="Nomor dosen">
-                                        </div>
                                         <div class="col-md-4">
                                             <label>Nama Dosen</label>
                                         </div>
@@ -85,7 +79,7 @@
                                             <label>Gelar Pendidikan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="gelar_pendidikan" class="form-control" name="gelar_pendidikan"  value="<?= $dos['gelar_pendidikan'] ?>" placeholder="">
+                                            <input type="text" id="gelar_pendidikan" class="form-control" name="gelar_pendidikan" value="<?= $dos['gelar_pendidikan'] ?>" placeholder="">
                                         </div>
                                         <div class="col-md-4">
                                             <label>Alamat</label>

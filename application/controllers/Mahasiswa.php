@@ -12,7 +12,6 @@ class Mahasiswa extends Auth_Controller
 
     private function form_validation_rules()
     {
-        $this->form_validation->set_rules('mahasiswa_id', 'mahasiswa_id', 'required|trim|numeric');
         $this->form_validation->set_rules('nim', 'nim', 'required|trim');
         $this->form_validation->set_rules('nama', 'nama', 'required|trim');
         $this->form_validation->set_rules('konsentrasi_id', 'konsentrasi_id', 'required|trim|numeric');
@@ -52,7 +51,6 @@ class Mahasiswa extends Auth_Controller
         $this->form_validation->set_rules('instansi_sampai', 'instansi_sampai', 'required|trim|numeric');
         $this->form_validation->set_rules('semester_aktif', 'semester_aktif', 'required|trim|numeric');
         $this->form_validation->set_rules('password', 'password', 'required|trim');
-
     }
 
     public function index()
@@ -215,5 +213,4 @@ class Mahasiswa extends Auth_Controller
         }
         redirect('mahasiswa');
     }
-
 }

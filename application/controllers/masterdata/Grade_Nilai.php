@@ -12,7 +12,6 @@ class Grade_Nilai extends Auth_Controller
 
     private function form_validation_rules()
     {
-        $this->form_validation->set_rules('nilai_id', 'nilai_id', 'required|trim|numeric');
         $this->form_validation->set_rules('dari', 'dari', 'required|trim|numeric');
         $this->form_validation->set_rules('sampai', 'sampai', 'required|trim|numeric');
         $this->form_validation->set_rules('grade', 'grade', 'required|trim');
@@ -109,5 +108,4 @@ class Grade_Nilai extends Auth_Controller
         }
         redirect('masterdata/grade_nilai');
     }
-
 }

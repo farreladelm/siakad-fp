@@ -35,13 +35,10 @@
                                         <div class="col-md-4">
                                             <label>Keterangan</label>
                                         </div>
-                                        <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="keterangan">
-                                                <option <?= $user['keterangan'] == 'Sistem Informasi' ? 'selected' : '' ?>>Sistem Informasi</option>
-                                                <option <?= $user['keterangan'] == 'Informatika' ? 'selected' : '' ?>>Informatika</option>
-                                                <option <?= $user['keterangan'] == 'Sains Data' ? 'selected' : '' ?>>Sains Data</option>
-                                            </select>
-                                        </fieldset>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="keterangan" class="form-control" name="keterangan" value="<?= set_value('keterangan') ?>" placeholder="keterangan">
+                                            <?= form_error('keterangan') ?>
+                                        </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>

@@ -18,6 +18,17 @@ class Prodi_model extends CI_Model
         return $this->db->get($this->table_name)->result_array();
     }
 
+    public function get_name()
+    {
+        $this->db->select('prodi_id, nama_prodi');
+        $data = $this->db->get($this->table_name)->result_array();
+        $temp = array();
+        foreach ($data as $item) {
+            $temp[$item['prodi_id']] = $item['nama_prodi'];
+        }
+        return $temp;
+    }
+
     public function insert($data)
     {
         return $this->db->insert($this->table_name, $data);

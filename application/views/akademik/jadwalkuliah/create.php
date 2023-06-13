@@ -47,19 +47,29 @@
                                             </select>
                                         </fieldset>
                                         <div class="col-md-4">
-                                            <label>Ruangan</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="text" id="ruangan_id" class="form-control" name="ruangan_id" value="<?= set_value('ruangan_id') ?>" placeholder="">
-                                            <?= form_error('ruangan_id') ?>
-                                        </div>
-                                        <div class="col-md-4">
                                             <label>Dosen</label>
                                         </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="text" id="dosen_id" class="form-control" name="dosen_id" value="<?= set_value('dosen_id') ?>" placeholder="">
-                                            <?= form_error('dosen_id') ?>
+                                        <fieldset class="col-md-8 form-group form-group">
+                                            <select class="form-select" id="dosen_id" name="dosen_id">
+                                                <?php foreach ($dosen as $item) : ?>
+                                                    <option value="<?= $item['dosen_id'] ?>">
+                                                        <?= $item['nama_lengkap'] ?> - <?= $prodi[$item['prodi_id']] ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </fieldset>
+                                        <div class="col-md-4">
+                                            <label>Ruangan</label>
                                         </div>
+                                        <fieldset class="col-md-8 form-group form-group">
+                                            <select class="form-select" id="ruangan_id" name="ruangan_id">
+                                                <?php foreach ($ruangan as $item) : ?>
+                                                    <option value="<?= $item['ruangan_id'] ?>">
+                                                        <?= $item['nama_ruangan'] ?> - <?= $item['keterangan'] ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </fieldset>
                                         <div class="col-md-4">
                                             <label>Jam Mulai</label>
                                         </div>
