@@ -100,16 +100,13 @@
                                             <input type="text" id="email" class="form-control" name="email" value="<?= $dos['email'] ?>" placeholder="">
                                         </div>
                                         <div class="col-md-4">
-                                            <label>ID Prodi</label>
+                                            <label>Program Studi</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="prodi_id">
-                                                <option value="1">Gizi</option>
-                                                <option value="2">Kedokteran</option>
-                                                <option value="3">Teknik Mesin</option>
-                                                <option value="4">Sistem Informasi</option>
-                                                <option value="5">Sains Data</option>
-                                                <option value="6">Informatika</option>
+                                            <select class="form-select" id="prodi_id" name="prodi_id" value="<?= set_value('prodi_id') ?>">
+                                                <?php foreach ($prodi as $item) : ?>
+                                                    <option value="<?= $item['prodi_id'] ?>"><?= $item['nama_prodi'] ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </fieldset>
                                         <div class="col-sm-12 d-flex justify-content-end">

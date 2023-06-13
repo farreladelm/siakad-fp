@@ -14,7 +14,7 @@
                         <th>jenjang</th>
                         <th>Jumlah Semester</th>
                         <th>Gelar</th>
-                        <th>Program Didik ID</th>
+                        <th>Program Didik</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -27,7 +27,7 @@
                             <td class="text-uppercase"><?= $item['jenjang'] ?></td>
                             <td><?= $item['jml_semester'] ?></td>
                             <td><?= $item['gelar'] ?></td>
-                            <td><?= $item['prodi_id'] ?></td>
+                            <td><?= $prodi[$item['prodi_id']] ?></td>
                             <td>
                                 <a href="<?= base_url('akademik/konsentrasi/edit/' . $item['konsentrasi_id']) ?>" class="btn btn-outline-warning">
                                     <i class="fas fa-edit"></i>

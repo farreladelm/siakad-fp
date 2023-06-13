@@ -7,6 +7,7 @@ class Dosen extends Auth_Controller
     {
         parent::__construct();
         $this->load->model('dosen_model', 'm_dos');
+        $this->load->model('prodi_model');
         $this->load->library('form_validation');
     }
 
@@ -32,6 +33,7 @@ class Dosen extends Auth_Controller
     {
         $data['page_title'] = 'Dosen';
         $data['sidebar'] = 'master data';
+        $data['prodi'] = $this->prodi_model->get_name();
 
         $data['dos'] = $this->m_dos->get();
         $this->template_view->load('masterdata/dosen/index', $data);
@@ -41,6 +43,8 @@ class Dosen extends Auth_Controller
     {
         $data['page_title'] = 'Tambah Dosen';
         $data['sidebar'] = 'master data';
+        $data['prodi'] = $this->prodi_model->get();
+
         // melakukan validasi form
         $this->form_validation_rules();
 
@@ -87,6 +91,8 @@ class Dosen extends Auth_Controller
         $data['page_title'] = 'Edit Dosen';
         $data['sidebar'] = 'master data';
         $data['dos'] = $this->m_dos->get($id);
+        $data['prodi'] = $this->prodi_model->get();
+
         // validasi form
         // apply unique rules ketika input kode m_dos tidak sesuai dengan nilai pada db
         $this->form_validation_rules();

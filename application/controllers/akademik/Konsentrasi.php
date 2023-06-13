@@ -7,6 +7,7 @@ class Konsentrasi extends Auth_Controller
     {
         parent::__construct();
         $this->load->model('konsentrasi_model', 'm_konsentrasi');
+        $this->load->model('prodi_model');
         $this->load->library('form_validation');
     }
 
@@ -23,6 +24,8 @@ class Konsentrasi extends Auth_Controller
     {
         $data['page_title'] = 'Konsentrasi';
         $data['sidebar'] = 'akademik';
+        $data['prodi'] = $this->prodi_model->get_name();
+
 
         $data['konsentrasi'] = $this->m_konsentrasi->get();
         $this->template_view->load('akademik/konsentrasi/index', $data);
@@ -32,6 +35,7 @@ class Konsentrasi extends Auth_Controller
     {
         $data['page_title'] = 'Tambah Data';
         $data['sidebar'] = 'akademik';
+        $data['prodi'] = $this->prodi_model->get();
         // melakukan validasi form
         $this->form_validation_rules();
 
@@ -69,6 +73,8 @@ class Konsentrasi extends Auth_Controller
         $data['page_title'] = 'Edit Konsentrasi';
         $data['sidebar'] = 'akademik';
         $data['konsentrasi'] = $this->m_konsentrasi->get($id);
+        $data['prodi'] = $this->prodi_model->get();
+
         // validasi form
         $this->form_validation_rules();
 
