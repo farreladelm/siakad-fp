@@ -1,31 +1,31 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Konsentrasi extends Auth_Controller
+class Prodi extends Auth_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('konsentrasi_model', 'm_konsentrasi');
+        $this->load->model('prodi_model');
         $this->load->library('form_validation');
     }
 
-    private function form_validation_rules()
+    private function form_validation_rules($new = true)
     {
-        $this->form_validation->set_rules('nama_konsentrasi', 'nama_konsentrasi', 'required|trim|is_unique[akademik_konsentrasi.nama_konsentrasi]');
+        $is_unique = $new ? '|is_unique[akademik_prodi.nama_prodi]' : '';
+        $this->form_validation->set_rules('nama_prodi', 'nama_prodi', 'required|trim' . $is_unique);
         $this->form_validation->set_rules('ketua', 'ketua', 'required|trim');
-        $this->form_validation->set_rules('jenjang', 'jenjang', 'required|trim');
-        $this->form_validation->set_rules('jml_semester', 'jml_semester', 'required|trim');
-        $this->form_validation->set_rules('prodi_id', 'prodi_id', 'required|trim');
+        $this->form_validation->set_rules('no_izin', 'no_izin', 'required|trim');
+        $this->form_validation->set_rules('status', 'status', 'required|trim');
     }
 
     public function index()
     {
-        $data['page_title'] = 'Konsentrasi';
+        $data['page_title'] = 'Program Didik';
         $data['sidebar'] = 'akademik';
 
-        $data['konsentrasi'] = $this->m_konsentrasi->get();
-        $this->template_view->load('akademik/konsentrasi/index', $data);
+        $data['prodi'] = $this->prodi_model->get();
+        $this->template_view->load('akademik/prodi/index', $data);
     }
 
     public function create()
@@ -38,20 +38,18 @@ class Konsentrasi extends Auth_Controller
         // jika validasi gagal
         if ($this->form_validation->run() == false) {
             // $data['title'] = 'Page | Registration';
-            return $this->template_view->load('akademik/konsentrasi/create', $data);
+            return $this->template_view->load('akademik/prodi/create', $data);
         }
         // membuat data array untuk query ke db (harus urut sesuai db)
         $data = [
-            'nama_konsentrasi' => htmlspecialchars($this->input->post('nama_konsentrasi', true)),
+            'nama_prodi' => htmlspecialchars($this->input->post('nama_prodi', true)),
             'ketua' => htmlspecialchars($this->input->post('ketua', true)),
-            'jenjang' => htmlspecialchars($this->input->post('jenjang', true)),
-            'jml_semester' => htmlspecialchars($this->input->post('jml_semester', true)),
-            'gelar' => htmlspecialchars($this->input->post('jenjang', true)),
-            'prodi_id' => htmlspecialchars($this->input->post('prodi_id', true)),
+            'no_izin' => htmlspecialchars($this->input->post('no_izin', true)),
+            'status' => htmlspecialchars($this->input->post('status', true)),
         ];
 
         // menginputkan data registrasi
-        if ($this->m_konsentrasi->insert($data)) {
+        if ($this->prodi_model->insert($data)) {
             // memberikan flashdata message kalau registrasi berhasil
             $this->session->set_flashdata('message', '<div class="alert alert-success">
             Berhasil menambahkan data</div>');
@@ -61,33 +59,32 @@ class Konsentrasi extends Auth_Controller
         }
 
         // redirect ke controller tahun_akademik
-        return redirect('akademik/konsentrasi');
+        return redirect('akademik/prodi');
     }
 
     public function edit($id)
     {
-        $data['page_title'] = 'Edit Konsentrasi';
+        $data['page_title'] = 'Edit Data';
         $data['sidebar'] = 'akademik';
-        $data['konsentrasi'] = $this->m_konsentrasi->get($id);
+        $data['prodi'] = $this->prodi_model->get($id);
         // validasi form
-        $this->form_validation_rules();
+        $is_unique = $data['prodi']['nama_prodi'] != $this->input->post('nama_prodi', true);
+        $this->form_validation_rules($is_unique);
 
         // jika validasi gagal
         if ($this->form_validation->run() == false) {
-            return $this->template_view->load('akademik/konsentrasi/edit', $data);
+            return $this->template_view->load('akademik/prodi/edit', $data);
         }
 
         $data = [
-            'nama_konsentrasi' => htmlspecialchars($this->input->post('nama_konsentrasi', true)),
+            'nama_prodi' => htmlspecialchars($this->input->post('nama_prodi', true)),
             'ketua' => htmlspecialchars($this->input->post('ketua', true)),
-            'jenjang' => htmlspecialchars($this->input->post('jenjang', true)),
-            'jml_semester' => htmlspecialchars($this->input->post('jml_semester', true)),
-            'gelar' => htmlspecialchars($this->input->post('jenjang', true)),
-            'prodi_id' => htmlspecialchars($this->input->post('prodi_id', true)),
+            'no_izin' => htmlspecialchars($this->input->post('no_izin', true)),
+            'status' => htmlspecialchars($this->input->post('status', true)),
         ];
 
         // menginputkan data registrasi
-        if ($this->m_konsentrasi->update($id, $data)) {
+        if ($this->prodi_model->update($id, $data)) {
             // memberikan flashdata message kalau berhasil update
             $this->session->set_flashdata('message', '<div class="alert alert-success">
             Berhasil mengubah data</div>');
@@ -97,18 +94,18 @@ class Konsentrasi extends Auth_Controller
             gagal mengubah data</div>');
         }
         // redirect ke controller tahun_akademik
-        return redirect('akademik/konsentrasi');
+        return redirect('akademik/prodi');
     }
 
     public function delete($id)
     {
-        if ($this->m_konsentrasi->delete($id)) {
+        if ($this->prodi_model->delete($id)) {
             $this->session->set_flashdata('message', '<div class="alert alert-success">
             Berhasil menghapus KRS</div>');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger">
             Gagal menghapus KRS</div>');
         }
-        redirect('akademik/konsentrasi');
+        redirect('akademik/prodi');
     }
 }

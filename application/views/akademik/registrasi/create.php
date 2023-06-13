@@ -12,13 +12,14 @@
                                             <label>NIM</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="nim" class="form-control" name="nim" placeholder="Hanya gunakan angka">
+                                            <input type="text" id="nim" class="form-control" name="nim" value="<?= set_value('nim') ?>" placeholder="Hanya gunakan angka">
+                                            <?= form_error('nim') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Tahun Akademik</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="tahun_akademik_id">
+                                            <select class="form-select" id="basicSelect" name="tahun_akademik_id" value="<?= set_value('tahun_akademik_id') ?>">
                                                 <?php foreach ($tahun_akademik as $item) : ?>
                                                     <option value="<?= $item['tahun_akademik_id'] ?>"><?= $item['tahun'] ?> <?= $item['keterangan'] % 2 == 0 ? 'Genap' : 'Ganjil'  ?></option>
                                                 <?php endforeach ?>
@@ -28,7 +29,7 @@
                                             <label>Semester</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="semester">
+                                            <select class="form-select" id="basicSelect" name="semester" value="<?= set_value('semester') ?>">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>

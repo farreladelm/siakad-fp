@@ -90,6 +90,9 @@
                             <a href="<?= base_url('akademik/konsentrasi') ?>">Konsentrasi</a>
                         </li>
                         <li class="submenu-item ">
+                            <a href="<?= base_url('akademik/prodi') ?>">Prodi</a>
+                        </li>
+                        <li class="submenu-item ">
                             <a href="<?= base_url('akademik/krs') ?>">Kartu Rencana Studi</a>
                         </li>
                         <li class="submenu-item ">

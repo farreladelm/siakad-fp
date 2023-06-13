@@ -44,7 +44,7 @@ class Registrasi extends Auth_Controller
         // membuat data array untuk query ke db (harus urut sesuai db)
         $data = [
             'nim' => htmlspecialchars($this->input->post('nim', true)),
-            // 'tanggal_registrasi' => date('d-m-Y H:i:s'),
+            // 'tanggal_registrasi' => now(),
             'tahun_akademik_id' => htmlspecialchars($this->input->post('tahun_akademik_id', true)),
             'semester' => htmlspecialchars($this->input->post('semester', true)),
         ];
@@ -65,9 +65,11 @@ class Registrasi extends Auth_Controller
 
     public function edit($id)
     {
-        $data['page_title'] = 'Edit Status KHS';
+        $data['page_title'] = 'Edit Data';
         $data['sidebar'] = 'akademik';
-        $data['khs'] = $this->registrasi_model->get($id);
+        $data['registrasi'] = $this->registrasi_model->get($id);
+        $data['tahun_akademik'] = $this->tahunakademik_model->get();
+
         // validasi form
         $this->form_validation_rules();
         // jika validasi gagal
@@ -75,12 +77,9 @@ class Registrasi extends Auth_Controller
             return $this->template_view->load('akademik/registrasi/edit', $data);
         }
         $data = [
-            'krs_id' => htmlspecialchars($this->input->post('krs_id', true)),
-            'mutu' => htmlspecialchars($this->input->post('mutu', true)),
-            'kehadiran' => htmlspecialchars($this->input->post('kehadiran', true)),
-            'tugas' => htmlspecialchars($this->input->post('tugas', true)),
-            'grade' => htmlspecialchars($this->input->post('grade', true)),
-            'confirm' => htmlspecialchars($this->input->post('confirm', true)),
+            'nim' => htmlspecialchars($this->input->post('nim', true)),
+            'tahun_akademik_id' => htmlspecialchars($this->input->post('tahun_akademik_id', true)),
+            'semester' => htmlspecialchars($this->input->post('semester', true)),
         ];
 
         // menginputkan data registrasi

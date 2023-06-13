@@ -13,12 +13,14 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="nama_konsentrasi" class="form-control" name="nama_konsentrasi" value="<?= $konsentrasi['nama_konsentrasi'] ?>" placeholder="Minimal 3 huruf">
+                                            <?= form_error('nama_konsentrasi') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Ketua</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="ketua" class="form-control" name="ketua" value="<?= $konsentrasi['ketua'] ?>" placeholder="Tanpa gelar">
+                                            <?= form_error('ketua') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Jenjang</label>

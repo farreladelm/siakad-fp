@@ -5,34 +5,37 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-horizontal" action="<?= base_url('akademik/krs/create') ?>" method="POST">
+                            <form class="form form-horizontal" action="<?= base_url('akademik/prodi/create') ?>" method="POST">
                                 <div class="form-body">
                                     <divx class="row">
                                         <div class="col-md-4">
-                                            <label>NIM</label>
+                                            <label>Nama Program Didik</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="nim" class="form-control" name="nim" value="<?= set_value('nim') ?>" placeholder="tanpa spasi">
-                                            <?= form_error('nim') ?>
+                                            <input type="text" id="nama_prodi" class="form-control" name="nama_prodi" value="<?= set_value('nama_prodi') ?>" placeholder="Nama Program Didik">
+                                            <?= form_error('nama_prodi') ?>
                                         </div>
                                         <div class="col-md-4">
-                                            <label>Jadwal</label>
+                                            <label>Ketua</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="jadwal_id" class="form-control" name="jadwal_id" value="<?= set_value('jadwal_id') ?>" placeholder="">
-                                            <?= form_error('jadwal_id') ?>
+                                            <input type="text" id="ketua" class="form-control" name="ketua" value="<?= set_value('ketua') ?>" placeholder="Dengan Gelar">
+                                            <?= form_error('ketua') ?>
                                         </div>
                                         <div class="col-md-4">
-                                            <label>Semester</label>
+                                            <label>Nomor Izin</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="no_izin" class="form-control" name="no_izin" value="<?= set_value('no_izin') ?>" placeholder="Sesuai Dengan Surat Izin">
+                                            <?= form_error('no_izin') ?>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Status</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="semester" value="<?= set_value('semester') ?>">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
+                                            <select class="form-select" id="basicSelect" name="status">
+                                                <option value="1">Aktif</option>
+                                                <option value="2">Tidak Aktif</option>
                                             </select>
                                         </fieldset>
                                         <div class="col-sm-12 d-flex justify-content-end">

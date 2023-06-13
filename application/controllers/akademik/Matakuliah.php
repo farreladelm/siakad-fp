@@ -32,7 +32,7 @@ class Matakuliah extends Auth_Controller
 
     public function create()
     {
-        $data['page_title'] = 'Buat Mata Kuliah Baru';
+        $data['page_title'] = 'Tambah Data';
         $data['sidebar'] = 'akademik';
         // melakukan validasi form
         $this->form_validation_rules(true, true);
@@ -69,7 +69,7 @@ class Matakuliah extends Auth_Controller
 
     public function edit($id)
     {
-        $data['page_title'] = 'Edit Pengguna';
+        $data['page_title'] = 'Edit Data';
         $data['sidebar'] = 'akademik';
         $subject = $this->makul->get($id);
         $data['subject'] = $subject;

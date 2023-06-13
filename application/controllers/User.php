@@ -13,7 +13,7 @@ class User extends Auth_Controller
     private function form_validation_rules($new = false, $is_unique = true)
     {
         $unique = $is_unique ? '|is_unique[users.username]' : '';
-        $this->form_validation->set_rules('username', 'Username', 'required|trim' . $unique);
+        $this->form_validation->set_rules('username', 'username', 'required|trim' . $unique);
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('level', 'Level', 'required|trim');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required|trim');
@@ -25,6 +25,7 @@ class User extends Auth_Controller
             $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password]');
         }
     }
+
 
     public function index()
     {
@@ -49,7 +50,7 @@ class User extends Auth_Controller
         }
         // membuat data array untuk query ke db (harus urut sesuai db)
         $data = [
-            'username' => htmlspecialchars($this->input->post('username', true)),
+            'username' => htmlspecialchars(str_replace(" ", "", $this->input->post('username', true))),
             'nama' => htmlspecialchars($this->input->post('nama', true)),
             'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             'level' => htmlspecialchars($this->input->post('level', true)),
