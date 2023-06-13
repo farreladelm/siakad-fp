@@ -41,8 +41,8 @@ class Auth extends CI_Controller
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-        // membuat query
-        $user = $this->db->get_where('users', ['username' => $username])->row_array();
+        // mendapatkan data dari model
+        $user = $this->user_model->user_by_username($username);
 
         // check apakah user ada --> !null
         if ($user) {
@@ -61,8 +61,8 @@ class Auth extends CI_Controller
                 $this->session->set_userdata($data);
                 $this->session->set_flashdata('login_ok', "<div class='alert alert-success'>
                 Selamat datang kembali, {$user['nama']}! </div>");
-
-                redirect('welcome');
+                $this->user_model->update_last_login($user['user_id'], ['last_login' => date("Y-m-d")]);
+                redirect('dashboard');
             }
             // password salah
             else {
@@ -110,7 +110,7 @@ class Auth extends CI_Controller
                 'level' => 2,
             ];
             // menginputkan data registrasi
-            $this->db->insert('users', $data);
+            $this->user_model->insert($data);
 
             // memberikan flashdata message kalau registrasi berhasil
             $this->session->set_flashdata('message', '<div class="alert alert-success">

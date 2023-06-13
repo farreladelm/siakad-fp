@@ -12,19 +12,21 @@
                                             <label>Angkatan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="angkatan_id" class="form-control" name="angkatan_id" placeholder="Angkatan ke-">
+                                            <input type="text" id="angkatan_id" class="form-control" name="angkatan_id" value="<?= set_value('angkatan_id') ?>" placeholder="Angkatan ke-">
+                                            <?= form_error('angkatan_id') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Keterangan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="keterangan" class="form-control" name="keterangan" placeholder="Periode Tahun">
+                                            <input type="text" id="keterangan" class="form-control" name="keterangan" value="<?= set_value('keterangan') ?>" placeholder="Periode Tahun">
+                                            <?= form_error('keterangan') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Status</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="aktif">
+                                            <select class="form-select" id="basicSelect" name="aktif" value="<?= set_value('aktif') ?>">
                                                 <option value="y">Aktif</option>
                                                 <option value="n">Tidak Aktif</option>
                                             </select>

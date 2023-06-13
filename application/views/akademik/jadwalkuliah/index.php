@@ -23,8 +23,8 @@
                             <td class="fw-bold"><?= $key + 1 ?></td>
                             <td><?= $item['hari_id'] ?></td>
                             <td><?= $makul[$item['makul_id']] ?></td>
-                            <td><?= $item['ruangan_id'] ?></td>
-                            <td><?= $item['dosen_id'] ?></td>
+                            <td><?= $ruangan[$item['ruangan_id']] ?></td>
+                            <td><?= $dosen[$item['dosen_id']] ?></td>
                             <td>
                                 <div class="p-2 border border-1 rounded mb-2">
                                     <?= $item['jam_mulai'] ?>
@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p>
-                                                    Apakah anda yakin untuk menghapus subject?
+                                                    Apakah anda yakin untuk menghapus data?
                                                 </p>
                                             </div>
                                             <div class="modal-footer">

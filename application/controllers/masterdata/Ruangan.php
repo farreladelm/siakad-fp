@@ -12,7 +12,6 @@ class Ruangan extends Auth_Controller
 
     private function form_validation_rules()
     {
-        $this->form_validation->set_rules('ruangan_id', 'ruangan_id', 'required|trim|numeric');
         $this->form_validation->set_rules('nama_ruangan', 'nama_ruangan', 'required|trim');
         $this->form_validation->set_rules('gedung_id', 'gedung_id', 'required|trim|numeric');
         $this->form_validation->set_rules('kapasitas', 'kapasitas', 'required|trim|numeric');
@@ -109,5 +108,4 @@ class Ruangan extends Auth_Controller
         }
         redirect('masterdata/ruangan');
     }
-
 }

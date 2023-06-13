@@ -9,12 +9,6 @@
                                 <div class="form-body">
                                     <divx class="row">
                                         <div class="col-md-4">
-                                            <label>ID Nilai</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="text" id="nilai_id" class="form-control" name="nilai_id" value="<?= $grn['nilai_id'] ?>" placeholder="">
-                                        </div>
-                                        <div class="col-md-4">
                                             <label>Dari Nilai</label>
                                         </div>
                                         <div class="col-md-8 form-group">

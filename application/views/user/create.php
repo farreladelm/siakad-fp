@@ -49,13 +49,10 @@
                                         <div class="col-md-4">
                                             <label>Keterangan</label>
                                         </div>
-                                        <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="keterangan" value="<?= set_value('keterangan') ?>">
-                                                <option>Sistem Informasi</option>
-                                                <option>Informatika</option>
-                                                <option>Sains Data</option>
-                                            </select>
-                                        </fieldset>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="keterangan" class="form-control" name="keterangan" value="<?= set_value('keterangan') ?>" placeholder="keterangan">
+                                            <?= form_error('keterangan') ?>
+                                        </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1">Submit</button>
                                             <button type="reset" class="btn btn-secondary">Reset</button>

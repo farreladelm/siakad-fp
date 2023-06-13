@@ -16,6 +16,11 @@ class Mahasiswa_model extends CI_Model
         return $this->db->get($this->table_name)->result_array();
     }
 
+    public function get_count()
+    {
+        return $this->db->get($this->table_name)->num_rows();
+    }
+
     public function insert($data)
     {
         return $this->db->insert($this->table_name, $data);

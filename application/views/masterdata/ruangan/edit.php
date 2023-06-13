@@ -8,12 +8,6 @@
                             <form class="form form-horizontal" action="<?= base_url('masterdata/ruangan/edit/' . $rua['ruangan_id']) ?>" method="POST">
                                 <div class="form-body">
                                     <divx class="row">
-                                    <div class="col-md-4">
-                                            <label>ID Ruangan</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="text" id="ruangan_id" class="form-control" name="ruangan_id" value="<?= $rua['ruangan_id'] ?>" placeholder="">
-                                        </div>
                                         <div class="col-md-4">
                                             <label>Nama Ruangan</label>
                                         </div>

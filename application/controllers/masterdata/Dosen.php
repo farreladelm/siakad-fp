@@ -12,7 +12,6 @@ class Dosen extends Auth_Controller
 
     private function form_validation_rules()
     {
-        $this->form_validation->set_rules('dosen_id', 'dosen_id', 'required|trim|numeric');
         $this->form_validation->set_rules('nama_lengkap', 'nama_lengkap', 'required|trim');
         $this->form_validation->set_rules('nidn', 'nidn', 'required|trim');
         $this->form_validation->set_rules('nip', 'nip', 'required|trim');
@@ -27,7 +26,6 @@ class Dosen extends Auth_Controller
         $this->form_validation->set_rules('hp', 'hp', 'required|trim');
         $this->form_validation->set_rules('email', 'email', 'required|trim');
         $this->form_validation->set_rules('prodi_id', 'prodi_id', 'required|trim|numeric');
-
     }
 
     public function index()
@@ -140,5 +138,4 @@ class Dosen extends Auth_Controller
         }
         redirect('masterdata/dosen');
     }
-
 }

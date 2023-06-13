@@ -9,12 +9,6 @@
                                 <div class="form-body">
                                     <divx class="row">
                                         <div class="col-md-4">
-                                            <label>Nomor</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="text" id="mahasiswa_id" class="form-control" name="mahasiswa_id" value="<?= $mhs['mahasiswa_id'] ?>" placeholder="Nomor Urut Data">
-                                        </div>
-                                        <div class="col-md-4">
                                             <label>NIM</label>
                                         </div>
                                         <div class="col-md-8 form-group">
