@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2023 at 07:02 PM
+-- Generation Time: Jun 13, 2023 at 07:22 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.2.31
 
@@ -369,8 +369,10 @@ CREATE TABLE `akademik_prodi` (
 --
 
 INSERT INTO `akademik_prodi` (`prodi_id`, `nama_prodi`, `ketua`, `no_izin`, `status`) VALUES
-(2, 'GIZI', 'sample text', '1169/D/T/2008', 2),
-(6, 'ILMU KOMPUTER', 'Bukan Saya', '1170/D/T/2023', 1);
+(1, 'ILMU KOMPUTER', 'Bukan Saya', '1170/D/T/2023', 1),
+(2, 'GIZI', 'sample text', '1169/D/T/2008', 1),
+(7, 'KEDOKTERAN', 'Subagyo', '1188/D/T/2023', 1),
+(8, 'ILMU SOSIAL DAN POLITIK', 'Mahfud', '1232/2023', 1);
 
 -- --------------------------------------------------------
 
@@ -658,29 +660,29 @@ CREATE TABLE `md_dosen` (
 --
 
 INSERT INTO `md_dosen` (`dosen_id`, `nama_lengkap`, `nidn`, `nip`, `no_ktp`, `tempat_lahir`, `tanggal_lahir`, `gender`, `agama`, `status_kawin`, `gelar_pendidikan`, `alamat`, `hp`, `email`, `prodi_id`) VALUES
-(1, 'joko', '748343', '196105041987032002', '43434', 'langsa', '2014-03-06', '1', 'islam', 1, 'sst', 'dsdsd', '081212123454', 'nu@gmail.com', 6),
-(6, 'Dr. Ciek Juliati Hisyam, MM.,M.Si', '', '196204121987032001', '', '', '0000-00-00', '1', 'islam', 1, '', '', '089690987654', 'saidatunnafsiah@gmail.com', 6),
-(7, 'Dr. Etin Solihatin, M.Pd.', '', '196601011989032003', '', '', '0000-00-00', '1', 'islam', 1, '', '', '089690987654', 'sampleemail@gmail.com', 6),
-(8, 'Alex Iskandar, Drs.,M.Pd.', '0423085601', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(11, 'Indra Hermawan, SE.', '0403077902', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(17, 'Anton Gultom, SST.,M.Pd.', '0420075701', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(18, 'Berayan Munthe, MT.', '0426055402', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(19, 'Rahmat Kuswandy, Drs.', '0412034601', '', '', '', '0000-00-00', '1', 'Kristen', 0, '', '', '', '', 6),
-(20, 'Chrestian Maxi Adri Mamesah', '0424035101', '', '', '', '0000-00-00', '1', 'Kristen', 0, '', '', '', '', 6),
-(21, 'Ahadiat, SST.,M.Pd.', '0423065703', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(22, 'Rahmat Gunawan, SST.,M.Pd.', '0416056602', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(23, 'Hernawati, M.Si.', '0403027206', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(24, 'Darsono, M.T.', '0413016101', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(25, 'Sutandi, M.Pd.', '0402037305', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(26, 'Sueb, Drs.,M.Si.,M.Pd.', '0025035803', '', '', '', '0000-00-00', '1', 'Katolik', 0, '', '', '', '', 6),
-(27, 'Theresia Florens Meliala, SST.,M.Pd.', '0419108101', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(28, 'Dini Arianti, ST.', '0401097702', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(29, 'Dadan Saeful Ramdhan, SST', '', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(30, 'Ganar Afin Nendriyawan, SST', '', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(31, 'Dian Rosdiana, SST', '', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(32, 'Riri Damayanti Apnena, SST', '', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 6),
-(33, 'sample dosen', '2323', '444444', '', 'langsa', '2014-08-23', '1', 'islam', 1, '', 'sample alamat', '085654987654', 'nuris.akbar@gmail.com', 6),
-(34, 'boy', '2351', '34523', '', 'sds', '1987-03-01', '1', 'islam', 1, '', 'sg', '0834414', 'boykurniawan123@gmail.com', 6),
+(0, 'joko', '748343', '196105041987032002', '43434', 'langsa', '2014-03-06', '1', 'Islam', 1, 'sst', 'dsdsd', '081212123454', 'nu@gmail.com', 7),
+(6, 'Dr. Ciek Juliati Hisyam, MM.,M.Si', '', '196204121987032001', '', '', '0000-00-00', '1', 'islam', 1, '', '', '089690987654', 'saidatunnafsiah@gmail.com', 1),
+(7, 'Dr. Etin Solihatin, M.Pd.', '', '196601011989032003', '', '', '0000-00-00', '1', 'islam', 1, '', '', '089690987654', 'sampleemail@gmail.com', 1),
+(8, 'Alex Iskandar, Drs.,M.Pd.', '0423085601', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(11, 'Indra Hermawan, SE.', '0403077902', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(17, 'Anton Gultom, SST.,M.Pd.', '0420075701', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(18, 'Berayan Munthe, MT.', '0426055402', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(19, 'Rahmat Kuswandy, Drs.', '0412034601', '', '', '', '0000-00-00', '1', 'Kristen', 0, '', '', '', '', 1),
+(20, 'Chrestian Maxi Adri Mamesah', '0424035101', '', '', '', '0000-00-00', '1', 'Kristen', 0, '', '', '', '', 1),
+(21, 'Ahadiat, SST.,M.Pd.', '0423065703', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(22, 'Rahmat Gunawan, SST.,M.Pd.', '0416056602', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(23, 'Hernawati, M.Si.', '0403027206', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(24, 'Darsono, M.T.', '0413016101', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(25, 'Sutandi, M.Pd.', '0402037305', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(26, 'Sueb, Drs.,M.Si.,M.Pd.', '0025035803', '', '', '', '0000-00-00', '1', 'Katolik', 0, '', '', '', '', 1),
+(27, 'Theresia Florens Meliala, SST.,M.Pd.', '0419108101', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(28, 'Dini Arianti, ST.', '0401097702', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(29, 'Dadan Saeful Ramdhan, SST', '', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(30, 'Ganar Afin Nendriyawan, SST', '', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(31, 'Dian Rosdiana, SST', '', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(32, 'Riri Damayanti Apnena, SST', '', '', '', '', '0000-00-00', '1', 'islam', 0, '', '', '', '', 1),
+(33, 'sample dosen', '2323', '444444', '', 'langsa', '2014-08-23', '1', 'islam', 1, '', 'sample alamat', '085654987654', 'nuris.akbar@gmail.com', 1),
+(34, 'boy', '2351', '34523', '', 'sds', '1987-03-01', '1', 'islam', 1, '', 'sg', '0834414', 'boykurniawan123@gmail.com', 1),
 (35, 'josi', '124151`', '3662626', '', 'Jambi', '1988-12-31', '1', 'islam', 1, '', 'jambi', '526374305328', 'b23@gmail.com', 2);
 
 -- --------------------------------------------------------
@@ -757,7 +759,8 @@ INSERT INTO `md_ruangan` (`ruangan_id`, `nama_ruangan`, `gedung_id`, `kapasitas`
 (26, 'L3.R01', 2, 30, ''),
 (27, 'ruangan test', 2, 45, 'sampe'),
 (28, 'L3 R08', 2, 80, 'Lab Komputer'),
-(34, 'Lt. 3 Lab', 2, 50, 'Lab Gizi');
+(34, 'Lt. 3 Lab', 2, 50, 'Lab Gizi'),
+(35, 'Lt. 4 301', 1, 123, 'Ruangan Kelas');
 
 -- --------------------------------------------------------
 
@@ -923,7 +926,7 @@ ALTER TABLE `akademik_krs`
 -- AUTO_INCREMENT for table `akademik_prodi`
 --
 ALTER TABLE `akademik_prodi`
-  MODIFY `prodi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `prodi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `akademik_registrasi`
@@ -983,7 +986,7 @@ ALTER TABLE `md_nilai_grade`
 -- AUTO_INCREMENT for table `md_ruangan`
 --
 ALTER TABLE `md_ruangan`
-  MODIFY `ruangan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `ruangan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `users`

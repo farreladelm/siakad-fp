@@ -47,7 +47,6 @@
                         <th>Mulai Instansi</th>
                         <th>Sampai Instansi</th>
                         <th>Semester Aktif</th>
-                        <th>Password</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -93,7 +92,6 @@
                             <td><?= $item['instansi_mulai'] ?></td>
                             <td><?= $item['instansi_sampai'] ?></td>
                             <td><?= $item['semester_aktif'] ?></td>
-                            <td><?= $item['password'] ?></td>
                             <td>
                                 <a href="<?= base_url('mahasiswa/edit/' . $item['mahasiswa_id']) ?>" class="btn btn-outline-warning">
                                     <i class="fas fa-edit"></i>

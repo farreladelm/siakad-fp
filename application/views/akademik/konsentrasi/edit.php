@@ -55,9 +55,10 @@
                                             <label>Program Studi</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="prodi_id">
-                                                <option value="1" <?= $konsentrasi['prodi_id'] == '1' ? 'selected' : '' ?>>ILMU KOMPUTER</option>
-                                                <option value="2" <?= $konsentrasi['prodi_id'] == '2' ? 'selected' : '' ?>>ILMU SOSIAL DAN POLITIK</option>
+                                            <select class="form-select" id="prodi_id" name="prodi_id">
+                                                <?php foreach ($prodi as $item) : ?>
+                                                    <option value="<?= $item['prodi_id'] ?>" <?= $item['prodi_id'] == $konsentrasi['prodi_id'] ? 'selected' : '' ?>><?= $item['nama_prodi'] ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </fieldset>
                                         <div class="col-sm-12 d-flex justify-content-end">

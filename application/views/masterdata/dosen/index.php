@@ -43,7 +43,7 @@
                             <td><?= $item['alamat'] ?></td>
                             <td><?= $item['hp'] ?></td>
                             <td><?= $item['email'] ?></td>
-                            <td><?= $item['prodi_id'] ?></td>
+                            <td><?= $prodi[$item['prodi_id']] ?></td>
                             <td>
                                 <a href="<?= base_url('masterdata/dosen/edit/' . $item['dosen_id']) ?>" class="btn btn-outline-warning">
                                     <i class="fas fa-edit"></i>
