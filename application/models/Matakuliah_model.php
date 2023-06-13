@@ -5,7 +5,7 @@ class Matakuliah_model extends CI_Model
 {
     public function get($id = null)
     {
-        if ($id) return $this->db->get_where('makul_matakuliah', ['makul_id' => $id])->result_array()[0];
+        if (!is_null($id)) return $this->db->get_where('makul_matakuliah', ['makul_id' => $id])->result_array()[0];
         return $this->db->get('makul_matakuliah')->result_array();
     }
 

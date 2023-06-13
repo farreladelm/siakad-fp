@@ -67,6 +67,7 @@ class Ruangan extends Auth_Controller
         $data['page_title'] = 'Edit Ruangan';
         $data['sidebar'] = 'master data';
         $data['rua'] = $this->m_rua->get($id);
+
         // validasi form
         // apply unique rules ketika input kode m_rua tidak sesuai dengan nilai pada db
         $this->form_validation_rules();

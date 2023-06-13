@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p>
-                                                    Apakah anda yakin untuk menghapus subject?
+                                                    Apakah anda yakin untuk menghapus data?
                                                 </p>
                                             </div>
                                             <div class="modal-footer">

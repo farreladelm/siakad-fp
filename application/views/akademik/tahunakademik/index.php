@@ -49,7 +49,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p>
-                                                    Apakah anda yakin untuk menghapus item?
+                                                    Apakah anda yakin untuk menghapus data?
                                                 </p>
                                             </div>
                                             <div class="modal-footer">

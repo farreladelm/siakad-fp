@@ -211,7 +211,7 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h4>Latest User</h4>
+            <h4>Latest Login</h4>
         </div>
         <div class="card-content pb-4">
             <?php foreach ($latest_user as $user) : ?>
