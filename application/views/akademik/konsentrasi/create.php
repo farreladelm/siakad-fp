@@ -12,19 +12,21 @@
                                             <label>Nama Konsentrasi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="nama_konsentrasi" class="form-control" name="nama_konsentrasi" placeholder="Minimal 3 huruf">
+                                            <input type="text" id="nama_konsentrasi" class="form-control" name="nama_konsentrasi" value="<?= set_value('nama_konsentrasi') ?>" placeholder="Minimal 3 huruf">
+                                            <?= form_error('nama_konsentrasi') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Ketua</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="ketua" class="form-control" name="ketua" placeholder="Tanpa gelar">
+                                            <input type="text" id="ketua" class="form-control" name="ketua" value="<?= set_value('ketua') ?>" placeholder="Tanpa gelar">
+                                            <?= form_error('ketua') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Jenjang</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="jenjang">
+                                            <select class="form-select" id="basicSelect" name="jenjang" value="<?= set_value('jenjang') ?>">
                                                 <option value="D1">D1</option>
                                                 <option value="D2">D2</option>
                                                 <option value="D3">D3</option>
@@ -38,7 +40,7 @@
                                             <label>Jumlah Semester</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="jml_semester">
+                                            <select class="form-select" id="basicSelect" name="jml_semester" value="<?= set_value('jml_semester') ?>">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -53,7 +55,7 @@
                                             <label>Program Studi</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="prodi_id">
+                                            <select class="form-select" id="basicSelect" name="prodi_id" value="<?= set_value('prodi_id') ?>">
                                                 <option value="1">ILMU KOMPUTER</option>
                                                 <option value="2">ILMU SOSIAL DAN POLITIK</option>
                                             </select>

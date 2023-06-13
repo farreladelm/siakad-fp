@@ -13,12 +13,14 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="first-name" class="form-control" name="username" value="<?= $user['username'] ?>" placeholder="username (tanpa spasi)">
+                                            <?= form_error('username') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Nama</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="first-name" class="form-control" name="nama" value="<?= $user['nama'] ?>" placeholder="Full Name">
+                                            <?= form_error('nama') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Level</label>

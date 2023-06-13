@@ -29,7 +29,7 @@ class Tahunakademik extends Auth_Controller
 
     public function create()
     {
-        $data['page_title'] = 'Buat Tahun Akademik Baru';
+        $data['page_title'] = 'Tambah Data Tahun Akademik';
         $data['sidebar'] = 'akademik';
         // melakukan validasi form
         $this->form_validation_rules();
@@ -63,7 +63,7 @@ class Tahunakademik extends Auth_Controller
 
     public function edit($id)
     {
-        $data['page_title'] = 'Edit Tahun';
+        $data['page_title'] = 'Edit Data';
         $data['sidebar'] = 'akademik';
         $data['tahun_akademik'] = $this->t_akademik->get($id);
         // validasi form

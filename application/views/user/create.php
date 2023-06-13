@@ -12,31 +12,35 @@
                                             <label>Username</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="first-name" class="form-control" name="username" placeholder="username (tanpa spasi)">
+                                            <input type="text" id="first-name" class="form-control" name="username" value="<?= set_value('username') ?>" placeholder="username (tanpa spasi)" maxlength="20">
+                                            <?= form_error('username') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Nama</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="first-name" class="form-control" name="nama" placeholder="Full Name">
+                                            <input type="text" id="first-name" class="form-control" name="nama" value="<?= set_value('nama') ?>" placeholder="Full Name">
+                                            <?= form_error('nama') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Password</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="password" id="password" class="form-control" name="password" placeholder="Password">
+                                            <input type="password" id="password" class="form-control" name="password" value="<?= set_value('password') ?>" placeholder="Password">
+                                            <?= form_error('password') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Password Confirmation</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="password" id="password" class="form-control" name="password2" placeholder="Password Confirmation">
+                                            <input type="password" id="password" class="form-control" name="password2" value="<?= set_value('password2') ?>" placeholder="Password Confirmation">
+                                            <?= form_error('password2') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Level</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="level">
+                                            <select class="form-select" id="basicSelect" name="level" value="<?= set_value('level') ?>">
                                                 <option value="1">Admin</option>
                                                 <option value="2">Pihak Jurusan</option>
                                                 <option value="3">Dosen</option>
@@ -46,7 +50,7 @@
                                             <label>Keterangan</label>
                                         </div>
                                         <fieldset class="col-md-8 form-group form-group">
-                                            <select class="form-select" id="basicSelect" name="keterangan">
+                                            <select class="form-select" id="basicSelect" name="keterangan" value="<?= set_value('keterangan') ?>">
                                                 <option>Sistem Informasi</option>
                                                 <option>Informatika</option>
                                                 <option>Sains Data</option>

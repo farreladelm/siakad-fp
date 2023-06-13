@@ -13,12 +13,14 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="tahun" class="form-control" name="tahun" value="<?= $tahun_akademik['tahun'] ?>" placeholder="Tahun akademik">
+                                            <?= form_error('tahun') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Batas Registrasi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="date" id="batas_registrasi" class="form-control" name="batas_registrasi" value="<?= $tahun_akademik['batas_registrasi'] ?>" placeholder="Batas registrasi tahun akademik">
+                                            <?= form_error('batas_registrasi') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Keterangan</label>

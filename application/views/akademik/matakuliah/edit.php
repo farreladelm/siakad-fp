@@ -13,12 +13,14 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="first-name" class="form-control" name="kode_makul" value="<?= $subject['kode_makul']  ?>" placeholder="tanpa spasi">
+                                            <?= form_error('kode_makul') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Nama Mata Kuliah</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="first-name" class="form-control" name="nama_makul" value="<?= $subject['nama_makul']  ?>" placeholder="">
+                                            <?= form_error('nama_makul') ?>
                                         </div>
                                         <div class="col-md-4">
                                             <label>SKS</label>
