@@ -12,7 +12,7 @@ class Tahunakademik_model extends CI_Model
 
     public function get($id = null)
     {
-        if ($id) return $this->db->get_where($this->table_name, ['tahun_akademik_id' => $id])->result_array()[0];
+        if (!is_null($id)) return $this->db->get_where($this->table_name, ['tahun_akademik_id' => $id])->result_array()[0];
         return $this->db->get($this->table_name)->result_array();
     }
 
