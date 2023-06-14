@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Mazer Admin Dashboard</title>
+    <title>Login - SIAKAD</title>
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/main/app.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/pages/auth.css">
     <link rel="shortcut icon" href="<?= base_url() ?>/assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="<?= base_url() ?>/assets/images/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="<?= base_url('') ?>/assets/extensions/@fortawesome/fontawesome-free/css/all.min.css">
+
 </head>
 
 <body>
@@ -18,10 +20,10 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="index.html"><img src="<?= base_url() ?>/assets/images/logo/logo.svg" alt="Logo"></a>
+                        <a href="<?= base_url('dashboard') ?>" class="fs-5 fw-bold"><i class="fas fa-user-cog me-2 fs-5"></i> SIAKAD</a>
                     </div>
                     <h1 class="auth-title">Log in.</h1>
-                    <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+                    <p class="auth-subtitle mb-5">Log in sesuai dengan data anda ketika mendaftar.</p>
 
                     <form action="<?= base_url('auth') ?>" method="POST">
                         <div class="form-group position-relative has-icon-left mb-4">
@@ -41,7 +43,6 @@
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class="text-gray-600">Don't have an account? <a href="<?= base_url('auth/register') ?>" class="font-bold">Sign
                                 up</a>.</p>
-                        <p><a class="font-bold" href="auth-forgot-password.html">Forgot password?</a>.</p>
                     </div>
                 </div>
             </div>
